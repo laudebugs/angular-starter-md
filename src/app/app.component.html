@@ -1,29 +1,37 @@
-<div class="main-container">
-  <div mode="side" opened class="side-nav" [ngClass]="{collapsed}">
-      <div class="menu">
-        <div class="logo-container">
-          <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-            <mat-icon>menu</mat-icon>
-          </button> -->
-            <mat-icon class="button-icon">diversity_2</mat-icon>
-            <h3 class="app-title" [ngClass]="{collapsed}">Awesome App</h3>
+<mat-drawer-container class="main-container">
+    <mat-drawer mode="side" opened class="side-nav" [ngClass]="{ collapsed: helperService.collapsed }">
+        <div class="menu">
+            <div class="logo-container">
+                <mat-icon class="button-icon">diversity_2</mat-icon>
+                <h3 class="app-title" [ngClass]="{ collapsed: helperService.collapsed }">Awesome App</h3>
+            </div>
+            <nav>
+                <span class="spacer"></span>
+                <button
+                    mat-button
+                    [ngClass]="{
+                        collapsed: helperService.collapsed,
+                        active: helperService.currentRoute === '/'
+                    }"
+                    [matTooltip]="helperService.collapsed ? '' : ''"
+                    matTooltipPosition="right"
+                    [routerLink]="['']"
+                >
+                    <span class="material-symbols-outlined button-icon"> home </span>
+                    {{ helperService.collapsed ? '' : 'Home' }}
+                </button>
+                <!-- Add Navigation buttons or anything else here -->
+            </nav>
         </div>
-
-          <nav>
-              <!-- Add Navigation buttons or anything else here -->
-          </nav>
-      </div>
-      <button class="toggle-collapse" mat-raised-button (click)="toggleCollapse()">
-          {{ collapsed ? '' : 'Collapse' }}
-          <mat-icon class="button-icon">{{ collapsed ? 'east' : 'west' }}</mat-icon>
-      </button>
-    </div>
-  <div class="main-content" [ngClass]="{collapsed}">
-    <mat-toolbar>
-
-     <span>Welcome</span>
-
-   </mat-toolbar>
-    <router-outlet></router-outlet>
-  </div>
-</div>
+        <button class="toggle-collapse" mat-raised-button (click)="helperService.toggleCollapse()">
+            {{ helperService.collapsed ? '' : 'Collapse' }}
+            <mat-icon class="button-icon">{{ helperService.collapsed ? 'east' : 'west' }}</mat-icon>
+        </button>
+    </mat-drawer>
+    <mat-drawer-content class="main-content" [ngClass]="{ collapsed: helperService.collapsed }">
+        <mat-toolbar>
+            <span>Welcome</span>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
