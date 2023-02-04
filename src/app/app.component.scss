@@ -85,7 +85,7 @@ $gray300: #e1e1e1;
             height: 5%;
             width: 100%;
         }
-        router-outlet {
+        .router-content {
             height: 95%;
         }
         &.collapsed {
