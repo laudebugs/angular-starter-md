@@ -17,8 +17,10 @@
                     matTooltipPosition="right"
                     [routerLink]="['']"
                 >
-                    <span class="material-symbols-outlined button-icon"> home </span>
-                    {{ helperService.collapsed ? '' : 'Home' }}
+                    <span class="button-content">
+                        <span class="material-symbols-outlined button-icon"> home </span>
+                        {{ helperService.collapsed ? '' : 'Home' }}
+                    </span>
                 </button>
                 <!-- Add Navigation buttons or anything else here -->
             </nav>

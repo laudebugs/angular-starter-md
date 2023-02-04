@@ -42,15 +42,23 @@ $gray300: #e1e1e1;
                 }
             }
             nav {
+                display: flex;
+                flex-direction: column;
                 .spacer {
-                    margin: 1.5em;
+                    margin: 1.25em;
                 }
                 width: 100%;
                 button {
-                    padding: 0.5em;
+                    padding: 0.5em 0;
                     width: 100%;
-                    display: flex;
-                    justify-content: space-evenly;
+                    .button-content {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .button-icon {
+                            margin-right: 0.5em;
+                        }
+                    }
                 }
             }
         }
