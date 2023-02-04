@@ -32,6 +32,7 @@ $gray300: #e1e1e1;
                 height: 48px;
                 h3 {
                     margin: 0;
+                    white-space: nowrap;
                 }
                 .app-title {
                     &.collapsed {

@@ -15,8 +15,8 @@ body {
     font-family: 'Work Sans', sans-serif;
 }
 
-$app-typography: mat.define-legacy-typography-config(
+$app-typography: mat.define-typography-config(
     $font-family: "'Work Sans', sans-serif",
 );
 
-@include mat.all-legacy-component-typographies($app-typography);
+@include mat.all-component-typographies($app-typography);
