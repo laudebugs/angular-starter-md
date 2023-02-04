@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-starter-material';
+  #collapsed = JSON.parse(localStorage.getItem('collapsed') ?? 'false')
+
+  get collapsed(): boolean {
+      return this.#collapsed
+  }
+  set collapsed(value: boolean) {
+      this.#collapsed = value
+      localStorage.setItem('collapsed', JSON.stringify(value))
+  }
+
+  toggleCollapse(): void {
+      this.collapsed = !this.collapsed
+  }
 }
